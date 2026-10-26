@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital-Computador | Caderno de Gestão</title>
+<style>
+:root{--bg:#f3f6fb;--card:#fff;--ink:#172033;--muted:#667085;--blue:#1459d9;--blue2:#0d3f9e;--line:#e5eaf2;--green:#12805c;--red:#c0392b;--shadow:0 8px 28px rgba(25,45,85,.08)}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink)}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:10px;padding:11px 14px;font-weight:700}.primary{background:var(--blue);color:white}.primary:hover{background:var(--blue2)}.soft{background:#eaf1ff;color:var(--blue)}.danger{background:#fff0ef;color:var(--red)}.muted{color:var(--muted)}.layout{display:flex;min-height:100vh}.sidebar{width:245px;background:#101d35;color:#fff;padding:24px 16px;display:flex;flex-direction:column;gap:8px}.brand{font-size:19px;font-weight:800;line-height:1.3;margin:0 8px 6px}.brand small{display:block;font-size:12px;color:#aab8d2;font-weight:500;margin-top:5px}.navbtn{background:transparent;color:#d5def0;text-align:left;padding:13px;border-radius:10px}.navbtn.active,.navbtn:hover{background:#20385f;color:#fff}.sidebar-foot{margin-top:auto;font-size:12px;color:#aab8d2;line-height:1.5;padding:10px}.main{flex:1;min-width:0;padding:28px;max-width:1500px;margin:0 auto;width:100%}.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:24px}.topbar h1{font-size:27px;margin:0 0 5px}.topbar p{margin:0;color:var(--muted)}.date-pill{background:#fff;border:1px solid var(--line);padding:10px 13px;border-radius:12px;color:var(--muted);white-space:nowrap}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin-bottom:20px}.stat,.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:19px;box-shadow:var(--shadow)}.stat .label{font-size:13px;color:var(--muted);margin-bottom:10px}.stat .num{font-size:26px;font-weight:800;letter-spacing:-.5px}.stat .hint{font-size:12px;color:var(--muted);margin-top:7px}.grid2{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:18px}.panel{margin-bottom:18px;box-shadow:none}.panelhead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}.panelhead h2{font-size:17px;margin:0}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:13px;font-weight:700;color:#3b465c}.field input,.field select,.field textarea{width:100%;border:1px solid #d8dfeb;border-radius:10px;padding:11px 12px;background:#fff;min-width:0;color:var(--ink)}.field textarea{resize:vertical;min-height:85px}.formactions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.tablewrap{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:650px}th,td{text-align:left;padding:12px 10px;border-bottom:1px solid var(--line);font-size:13px}th{color:var(--muted);font-weight:700;background:#f8faff}td strong{font-size:13px}.empty{text-align:center;color:var(--muted);padding:25px}.badge{display:inline-block;background:#e8f7f0;color:var(--green);border-radius:99px;padding:5px 8px;font-size:11px;font-weight:700}.section{display:none}.section.active{display:block}.note{font-size:12px;line-height:1.5;color:var(--muted)}.toolbar{display:flex;gap:8px;flex-wrap:wrap}.mobile-menu{display:none}.smallbtn{padding:7px 9px;font-size:12px}.notice{border:1px solid #f0d8a8;background:#fff9e9;border-radius:12px;padding:12px 14px;color:#765515;font-size:13px;line-height:1.5;margin-bottom:18px}.footer{text-align:center;font-size:12px;color:var(--muted);padding:10px}.money{white-space:nowrap}
+@media(max-width:1000px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.grid2{grid-template-columns:1fr}.sidebar{width:210px}.main{padding:20px}}
+@media(max-width:680px){.layout{display:block}.sidebar{width:100%;padding:13px;display:block}.brand{margin:3px 5px 12px}.navrow{display:flex;overflow-x:auto;gap:6px}.navbtn{white-space:nowrap;padding:10px 12px;font-size:13px}.sidebar-foot{display:none}.main{padding:16px}.topbar{align-items:flex-start;flex-direction:column}.topbar h1{font-size:23px}.date-pill{white-space:normal}.stats{gap:10px}.stat{padding:14px}.stat .num{font-size:22px}.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}.panel{padding:14px}.toolbar button{flex:1}.mobile-menu{display:block}}
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand">Digital-Computador<small>Caderno de gestão da loja</small></div>
+    <div class="navrow">
+      <button class="navbtn active" data-section="inicio">▦ &nbsp;Resumo do dia</button>
+      <button class="navbtn" data-section="vendas">＋ &nbsp;Registar venda</button>
+      <button class="navbtn" data-section="clientes">♙ &nbsp;Clientes</button>
+      <button class="navbtn" data-section="despesas">− &nbsp;Despesas</button>
+      <button class="navbtn" data-section="relatorios">▤ &nbsp;Relatórios</button>
+      <button class="navbtn" data-section="notas">✎ &nbsp;Apontamentos</button>
+    </div>
+    <div class="sidebar-foot">Registos guardados neste navegador.<br>Faça cópias de segurança regularmente.</div>
+  </aside>
+  <main class="main">
+    <header class="topbar">
+      <div><h1 id="pageTitle">Resumo do dia</h1><p>Registe e acompanhe o movimento da sua loja.</p></div>
+      <div class="date-pill" id="todayLabel"></div>
+    </header>
+    <div class="notice"><strong>Importante:</strong> esta versão não usa Supabase. Os dados ficam guardados neste navegador e neste dispositivo. Para consultar os mesmos dados noutro telemóvel/computador, será necessário ligar um serviço de armazenamento online ou importar uma cópia de segurança.</div>
+
+    <section id="inicio" class="section active">
+      <div class="stats">
+        <div class="stat"><div class="label">Clientes registados hoje</div><div class="num" id="statCustomers">0</div><div class="hint">Contagem de entradas</div></div>
+        <div class="stat"><div class="label">Computadores vendidos hoje</div><div class="num" id="statComputers">0</div><div class="hint">Unidades vendidas</div></div>
+        <div class="stat"><div class="label">Vendas de hoje</div><div class="num" id="statSales">0 Kz</div><div class="hint">Total registado</div></div>
+        <div class="stat"><div class="label">Despesas de hoje</div><div class="num" id="statExpenses">0 Kz</div><div class="hint">Despesas registadas</div></div>
+      </div>
+      <div class="grid2">
+        <div class="panel">
+          <div class="panelhead"><h2>Movimento de hoje</h2><button class="soft smallbtn" onclick="showSection('vendas')">+ Registar venda</button></div>
+          <div class="tablewrap"><table><thead><tr><th>Hora/data</th><th>Produto</th><th>Qtd.</th><th>Total</th></tr></thead><tbody id="todaySalesRows"></tbody></table></div>
+        </div>
+        <div class="panel">
+          <div class="panelhead"><h2>Resumo financeiro</h2></div>
+          <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line)"><span class="muted">Total de vendas</span><strong id="summarySales">0 Kz</strong></div>
+          <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line)"><span class="muted">Total de despesas</span><strong id="summaryExpenses">0 Kz</strong></div>
+          <div style="display:flex;justify-content:space-between;padding:14px 0 4px"><span><strong>Saldo do dia</strong></span><strong id="summaryBalance">0 Kz</strong></div>
+          <p class="note">O saldo é calculado como vendas menos despesas registadas. Não inclui outras entradas ou dívidas não anotadas.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="vendas" class="section">
+      <div class="grid2">
+        <div class="panel">
+          <div class="panelhead"><h2>Registar venda</h2></div>
+          <form id="saleForm">
+            <div class="formgrid">
+              <div class="field"><label for="saleDate">Data</label><input type="date" id="saleDate" required></div>
+              <div class="field"><label for="saleCustomer">Nome do cliente (opcional)</label><input id="saleCustomer" placeholder="Nome do cliente"></div>
+              <div class="field"><label for="saleProduct">Produto</label><input id="saleProduct" placeholder="Ex.: computador HP" required></div>
+              <div class="field"><label for="saleCategory">Tipo de produto</label><select id="saleCategory"><option>Computador portátil</option><option>Computador de mesa</option><option>Acessório</option><option>Peça/Componente</option><option>Serviço</option><option>Outro</option></select></div>
+              <div class="field"><label for="saleQty">Quantidade</label><input type="number" id="saleQty" min="1" step="1" value="1" required></div>
+              <div class="field"><label for="salePrice">Preço unitário (Kz)</label><input type="number" id="salePrice" min="0" step="0.01" placeholder="Ex.: 250000" required></div>
+              <div class="field"><label for="salePayment">Forma de pagamento</label><select id="salePayment"><option>Numerário</option><option>Transferência</option><option>Multicaixa/TPA</option><option>Pagamento parcial</option><option>Outro</option></select></div>
+              <div class="field"><label for="salePhone">Telefone do cliente (opcional)</label><input id="salePhone" type="tel" placeholder="+244 ..."></div>
+              <div class="field full"><label for="saleNotes">Observações</label><textarea id="saleNotes" placeholder="Garantia, referência, valor em dívida, etc."></textarea></div>
+            </div>
+            <div class="formactions"><button class="primary" type="submit">Guardar venda</button><button class="soft" type="reset">Limpar formulário</button></div>
+          </form>
+        </div>
+        <div class="panel">
+          <div class="panelhead"><h2>Histórico de vendas</h2><span class="badge" id="salesCount">0 registos</span></div>
+          <div class="field" style="margin-bottom:12px"><label for="salesFilter">Filtrar por data</label><input type="date" id="salesFilter"></div>
+          <div class="tablewrap"><table><thead><tr><th>Data</th><th>Produto</th><th>Qtd.</th><th>Total</th><th></th></tr></thead><tbody id="allSalesRows"></tbody></table></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="clientes" class="section">
+      <div class="grid2">
+        <div class="panel">
+          <div class="panelhead"><h2>Registar cliente/visita</h2></div>
+          <form id="customerForm"><div class="formgrid">
+            <div class="field"><label for="customerDate">Data</label><input id="customerDate" type="date" required></div>
+            <div class="field"><label for="customerName">Nome</label><input id="customerName" placeholder="Nome do cliente" required></div>
+            <div class="field"><label for="customerPhone">Telefone (opcional)</label><input id="customerPhone" type="tel" placeholder="+244 ..."></div>
+            <div class="field"><label for="customerReason">Motivo da visita</label><select id="customerReason"><option>Comprar computador</option><option>Comprar acessório</option><option>Reparação/assistência</option><option>Informações/preços</option><option>Outro</option></select></div>
+            <div class="field full"><label for="customerNotes">Observações</label><textarea id="customerNotes" placeholder="O que procurava? Vai voltar?"></textarea></div>
+          </div><div class="formactions"><button class="primary" type="submit">Guardar cliente</button></div></form>
+        </div>
+        <div class="panel">
+          <div class="panelhead"><h2>Clientes registados</h2><span class="badge" id="customersCount">0 registos</span></div>
+          <div class="tablewrap"><table><thead><tr><th>Data</th><th>Nome</th><th>Motivo</th><th></th></tr></thead><tbody id="customerRows"></tbody></table></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="despesas" class="section">
+      <div class="grid2">
+        <div class="panel">
+          <div class="panelhead"><h2>Registar despesa</h2></div>
+          <form id="expenseForm"><div class="formgrid">
+            <div class="field"><label for="expenseDate">Data</label><input id="expenseDate" type="date" required></div>
+            <div class="field"><label for="expenseType">Categoria</label><select id="expenseType"><option>Transporte</option><option>Renda</option><option>Energia/água</option><option>Internet/telefone</option><option>Compra de mercadoria</option><option>Salários</option><option>Manutenção</option><option>Outra</option></select></div>
+            <div class="field"><label for="expenseAmount">Valor (Kz)</label><input id="expenseAmount" type="number" min="0" step="0.01" required placeholder="Ex.: 15000"></div>
+            <div class="field"><label for="expensePaidBy">Pago por</label><input id="expensePaidBy" placeholder="Nome (opcional)"></div>
+            <div class="field full"><label for="expenseDescription">Descrição</label><textarea id="expenseDescription" placeholder="Descreva a despesa" required></textarea></div>
+          </div><div class="formactions"><button class="primary" type="submit">Guardar despesa</button></div></form>
+        </div>
+        <div class="panel">
+          <div class="panelhead"><h2>Histórico de despesas</h2><span class="badge" id="expensesCount">0 registos</span></div>
+          <div class="tablewrap"><table><thead><tr><th>Data</th><th>Categoria</th><th>Valor</th><th></th></tr></thead><tbody id="expenseRows"></tbody></table></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="relatorios" class="section">
+      <div class="panel">
+        <div class="panelhead"><h2>Relatório por período</h2></div>
+        <div class="formgrid" style="max-width:650px;margin-bottom:16px">
+          <div class="field"><label for="reportFrom">De</label><input type="date" id="reportFrom"></div>
+          <div class="field"><label for="reportTo">Até</label><input type="date" id="reportTo"></div>
+        </div>
+        <div class="toolbar"><button class="primary" onclick="buildReport()">Gerar relatório</button><button class="soft" onclick="exportCSV()">Exportar vendas CSV</button><button class="soft" onclick="backupData()">Descarregar cópia de segurança</button><button class="soft" onclick="document.getElementById('restoreFile').click()">Importar cópia</button><input type="file" id="restoreFile" accept=".json,application/json" hidden></div>
+        <div class="stats" style="margin-top:18px">
+          <div class="stat"><div class="label">Clientes no período</div><div class="num" id="reportCustomers">0</div></div>
+          <div class="stat"><div class="label">Computadores vendidos</div><div class="num" id="reportComputers">0</div></div>
+          <div class="stat"><div class="label">Vendas no período</div><div class="num" id="reportSales">0 Kz</div></div>
+          <div class="stat"><div class="label">Saldo após despesas</div><div class="num" id="reportBalance">0 Kz</div></div>
+        </div>
+        <p class="note">A cópia de segurança guarda os registos para poder transferi-los para outro dispositivo. Guarde o ficheiro num local seguro.</p>
+      </div>
+    </section>
+
+    <section id="notas" class="section">
+      <div class="panel">
+        <div class="panelhead"><h2>Caderno de apontamentos</h2><span class="badge">Notas da loja</span></div>
+        <form id="noteForm"><div class="formgrid">
+          <div class="field"><label for="noteDate">Data</label><input id="noteDate" type="date" required></div>
+          <div class="field"><label for="noteTitle">Título</label><input id="noteTitle" placeholder="Ex.: encomenda para amanhã" required></div>
+          <div class="field full"><label for="noteText">Apontamento</label><textarea id="noteText" required placeholder="Escreva aqui os lembretes, encomendas, contactos a fazer..."></textarea></div>
+        </div><div class="formactions"><button class="primary" type="submit">Guardar apontamento</button></div></form>
+      </div>
+      <div class="panel"><div class="panelhead"><h2>Apontamentos guardados</h2></div><div id="notesList"></div></div>
+    </section>
+    <div class="footer">Digital-Computador · Caderno de Gestão · Valores em kwanzas (Kz)</div>
+  </main>
+</div>
+<script>
+const KEY='digital_computador_caderno_v1';
+let db={sales:[],customers:[],expenses:[],notes:[]};
+try{const saved=localStorage.getItem(KEY);if(saved)db={...db,...JSON.parse(saved)}}catch(e){}
+const $=id=>document.getElementById(id);
+const today=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};
+const money=n=>new Intl.NumberFormat('pt-AO',{maximumFractionDigits:2}).format(Number(n)||0)+' Kz';
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function save(){localStorage.setItem(KEY,JSON.stringify(db));render()}
+function dateText(d){if(!d)return '—';let p=d.split('-');return p.length===3?`${p[2]}/${p[1]}/${p[0]}`:d}
+function showSection(id){document.querySelectorAll('.section').forEach(s=>s.classList.toggle('active',s.id===id));document.querySelectorAll('.navbtn').forEach(b=>b.classList.toggle('active',b.dataset.section===id));const titles={inicio:'Resumo do dia',vendas:'Registo de vendas',clientes:'Registo de clientes',despesas:'Despesas da loja',relatorios:'Relatórios',notas:'Caderno de apontamentos'};$('pageTitle').textContent=titles[id]||'Caderno de gestão';}
+document.querySelectorAll('.navbtn').forEach(b=>b.addEventListener('click',()=>showSection(b.dataset.section)));
+function rowEmpty(cols,msg='Ainda não existem registos.'){return `<tr><td class="empty" colspan="${cols}">${msg}</td></tr>`}
+function render(){
+ const t=today(), ts=db.sales.filter(x=>x.date===t), tc=db.customers.filter(x=>x.date===t), te=db.expenses.filter(x=>x.date===t);
+ const salesSum=arr=>arr.reduce((a,x)=>a+Number(x.total||0),0), expenseSum=arr=>arr.reduce((a,x)=>a+Number(x.amount||0),0);
+ $('statCustomers').textContent=tc.length;
+ $('statComputers').textContent=ts.filter(x=>x.category.includes('Computador')).reduce((a,x)=>a+Number(x.qty||0),0);
+ $('statSales').textContent=money(salesSum(ts));$('statExpenses').textContent=money(expenseSum(te));
+ $('summarySales').textContent=money(salesSum(ts));$('summaryExpenses').textContent=money(expenseSum(te));$('summaryBalance').textContent=money(salesSum(ts)-expenseSum(te));
+ $('todaySalesRows').innerHTML=ts.length?ts.slice().reverse().map(x=>`<tr><td>${dateText(x.date)}</td><td><strong>${esc(x.product)}</strong></td><td>${x.qty}</td><td class="money">${money(x.total)}</td></tr>`).join(''):rowEmpty(4,'Ainda não foram registadas vendas hoje.');
+ const sf=$('salesFilter').value;const sales=sf?db.sales.filter(x=>x.date===sf):db.sales.slice().sort((a,b)=>b.date.localeCompare(a.date));
+ $('salesCount').textContent=`${sales.length} registos`;
+ $('allSalesRows').innerHTML=sales.length?sales.map(x=>`<tr><td>${dateText(x.date)}</td><td><strong>${esc(x.product)}</strong><br><span class="muted">${esc(x.customer||x.category)}</span></td><td>${x.qty}</td><td class="money">${money(x.total)}</td><td><button class="danger smallbtn" onclick="delRecord('sales','${x.id}')">Apagar</button></td></tr>`).join(''):rowEmpty(5,'Nenhuma venda encontrada.');
+ $('customersCount').textContent=`${db.customers.length} registos`;
+ $('customerRows').innerHTML=db.customers.length?db.customers.slice().sort((a,b)=>b.date.localeCompare(a.date)).map(x=>`<tr><td>${dateText(x.date)}</td><td><strong>${esc(x.name)}</strong><br><span class="muted">${esc(x.phone||'')}</span></td><td>${esc(x.reason)}</td><td><button class="danger smallbtn" onclick="delRecord('customers','${x.id}')">Apagar</button></td></tr>`).join(''):rowEmpty(4);
+ $('expensesCount').textContent=`${db.expenses.length} registos`;
+ $('expenseRows').innerHTML=db.expenses.length?db.expenses.slice().sort((a,b)=>b.date.localeCompare(a.date)).map(x=>`<tr><td>${dateText(x.date)}</td><td><strong>${esc(x.type)}</strong><br><span class="muted">${esc(x.description)}</span></td><td class="money">${money(x.amount)}</td><td><button class="danger smallbtn" onclick="delRecord('expenses','${x.id}')">Apagar</button></td></tr>`).join(''):rowEmpty(4);
+ $('notesList').innerHTML=db.notes.length?db.notes.slice().sort((a,b)=>b.date.localeCompare(a.date)).map(x=>`<div style="padding:14px 0;border-bottom:1px solid var(--line)"><div style="display:flex;justify-content:space-between;gap:10px;align-items:start"><div><strong>${esc(x.title)}</strong><div class="note">${dateText(x.date)}</div></div><button class="danger smallbtn" onclick="delRecord('notes','${x.id}')">Apagar</button></div><p style="white-space:pre-wrap;margin-bottom:0">${esc(x.text)}</p></div>`).join(''):'<p class="empty">Ainda não há apontamentos.</p>';
+ buildReport();
+}
+function delRecord(type,id){if(confirm('Tem a certeza de que deseja apagar este registo?')){db[type]=db[type].filter(x=>x.id!==id);save()}}
+const id=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+$('saleForm').addEventListener('submit',e=>{e.preventDefault();const qty=Number($('saleQty').value),price=Number($('salePrice').value);db.sales.push({id:id(),date:$('saleDate').value,customer:$('saleCustomer').value.trim(),product:$('saleProduct').value.trim(),category:$('saleCategory').value,qty,price,total:qty*price,payment:$('salePayment').value,phone:$('salePhone').value.trim(),notes:$('saleNotes').value.trim()});e.target.reset();$('saleDate').value=today();$('saleQty').value=1;save();alert('Venda guardada com sucesso.')});
+$('customerForm').addEventListener('submit',e=>{e.preventDefault();db.customers.push({id:id(),date:$('customerDate').value,name:$('customerName').value.trim(),phone:$('customerPhone').value.trim(),reason:$('customerReason').value,notes:$('customerNotes').value.trim()});e.target.reset();$('customerDate').value=today();save();alert('Cliente guardado com sucesso.')});
+$('expenseForm').addEventListener('submit',e=>{e.preventDefault();db.expenses.push({id:id(),date:$('expenseDate').value,type:$('expenseType').value,amount:Number($('expenseAmount').value),paidBy:$('expensePaidBy').value.trim(),description:$('expenseDescription').value.trim()});e.target.reset();$('expenseDate').value=today();save();alert('Despesa guardada com sucesso.')});
+$('noteForm').addEventListener('submit',e=>{e.preventDefault();db.notes.push({id:id(),date:$('noteDate').value,title:$('noteTitle').value.trim(),text:$('noteText').value.trim()});e.target.reset();$('noteDate').value=today();save();alert('Apontamento guardado com sucesso.')});
+$('salesFilter').addEventListener('change',render);
+function buildReport(){const from=$('reportFrom').value||'0000-01-01',to=$('reportTo').value||'9999-12-31';const inRange=x=>x.date>=from&&x.date<=to;const s=db.sales.filter(inRange),c=db.customers.filter(inRange),e=db.expenses.filter(inRange);$('reportCustomers').textContent=c.length;$('reportComputers').textContent=s.filter(x=>x.category.includes('Computador')).reduce((a,x)=>a+Number(x.qty||0),0);$('reportSales').textContent=money(s.reduce((a,x)=>a+Number(x.total||0),0));$('reportBalance').textContent=money(s.reduce((a,x)=>a+Number(x.total||0),0)-e.reduce((a,x)=>a+Number(x.amount||0),0))}
+function exportCSV(){const rows=[['Data','Cliente','Produto','Categoria','Quantidade','Preço unitário (Kz)','Total (Kz)','Pagamento','Telefone','Observações'],...db.sales.map(x=>[x.date,x.customer,x.product,x.category,x.qty,x.price,x.total,x.payment,x.phone,x.notes])];const csv=rows.map(r=>r.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(';')).join('\r\n');downloadBlob('\ufeff'+csv,'digital-computador-vendas.csv','text/csv;charset=utf-8');}
+function backupData(){downloadBlob(JSON.stringify(db,null,2),'digital-computador-copia-seguranca.json','application/json')}
+function downloadBlob(content,name,type){const blob=new Blob([content],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.click();URL.revokeObjectURL(url)}
+$('restoreFile').addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{const data=JSON.parse(await f.text());if(!data.sales||!data.customers||!data.expenses||!data.notes)throw new Error();if(confirm('Importar esta cópia substituirá os registos atuais. Continuar?')){db=data;save();alert('Cópia importada com sucesso.')}}catch(err){alert('Não foi possível importar. Escolha uma cópia JSON válida deste site.')}e.target.value=''});
+$('todayLabel').textContent=new Date().toLocaleDateString('pt-PT',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+['saleDate','customerDate','expenseDate','noteDate'].forEach(x=>$(x).value=today());
+$('reportFrom').value=today();$('reportTo').value=today();render();
+</script>
+</body>
+</html>
